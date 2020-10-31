@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 const estiloColecao = StyleSheet.create({
    container: {   
-      flex: 1,     
+      flex: 1,
    },
    header: {
        height: 40,

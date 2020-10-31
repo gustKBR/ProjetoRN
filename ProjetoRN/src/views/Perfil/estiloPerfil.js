@@ -1,42 +1,48 @@
 import { StyleSheet } from 'react-native';
 
 const estiloPerfil = StyleSheet.create({
-   container: {   
+    container: {   
       flex: 1,
-      justifyContent: 'center',
+      backgroundColor: "#e7e7e7",
+    },
+    header:{
+       height: 40,
+       width: '100%',
+       backgroundColor: '#23B14D',
+       flexDirection: 'row',
+       alignItems: "flex-end",
+       padding: 5,
+    },
+    fundo: {     
+      width: '100%',
+      height: '100%',
+      flexDirection: 'row',
+      justifyContent: 'space-evenly',
       alignItems: 'center',
-   },
-   borda: {   
-      backgroundColor: '#000000',  
-      width: '80%',
-      height: '25%',
-      borderRadius: 10,
-   },
-   texto: {
+    },
+    texto: {
       fontSize: 20,
       color: '#FFFFFF',
       fontWeight: 'bold',
       textAlign: "center",
       padding: 10
-   },
-   botaoContainer: {
-      marginTop: 20,
-      marginBottom: 20,
-      marginLeft: 40,
-      marginRight: 40,
-      borderRadius: 5,
-      height: 40,
-      borderWidth: 2,
-      borderColor: '#e8f2e9',
-      backgroundColor: '#23B14D',
-      justifyContent: 'center',
+    },
+    botaoBackground: {
+      width: 140,
+      height: 100,
+      borderRadius: 10,
+      overflow: 'hidden',
+      justifyContent: 'flex-end',
       alignItems: 'center',
-   },
-      botaoTexto: {
+      padding: 10,
+      borderWidth: 1,
+      borderColor: "#14417b",
+    },
+    botaoTexto: {
       fontSize: 18,
-      color: '#FFFFFF',
-      fontWeight: 'bold'
-   },
+      color: '#000000',
+      fontWeight: 'bold',
+    },
 });
 
-  export default estiloPerfil;
+export default estiloPerfil;

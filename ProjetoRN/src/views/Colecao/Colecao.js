@@ -1,41 +1,21 @@
 import React, {useState} from 'react';
-import { Text, View, TouchableOpacity, FlatList } from 'react-native';
+import { Text, View, TouchableOpacity, FlatList, SafeAreaView, Image } from 'react-native';
+import { LinearGradient } from "expo-linear-gradient";
 import estiloColecao from './estiloColecao';
 import Lista from '../../components/Lista/Lista';
 import { MaterialIcons } from '@expo/vector-icons';
+import { styles } from "../../../styles/styles";
+import { Button } from '../../components/button';
+import Slider from '@react-native-community/slider';
 
 function Colecao({ navigation }) {
 
-    const [colecao, setColecao] = useState([
-        {
-            id: '1',
-            nome: 'Harry Potter',
-            modelo: 'Biscuit',
-            preco: 'R$30,00',
-            foto: require('../../../assets/Itens/harrypotter.jpg'),
-        },
-        {
-            id: '2',
-            nome: 'Joker',
-            modelo: 'Argila',
-            preco: 'R$110,00',
-            foto: require('../../../assets/Itens/joker.jpg'),
-        },
-        {
-            id: '3',
-            nome: 'Madara',
-            modelo: 'Plástico',
-            preco: 'R$750,00',
-            foto: require('../../../assets/Itens/madara.jpg'),
-        },
-        {
-            id: '4',
-            nome: 'Morpheus',
-            modelo: 'PVC',
-            preco: 'R$1590,00',
-            foto: require('../../../assets/Itens/matrix.jpg'),
-        },
-    ]);
+    const [isPlaying, setIsPlaing] = useState(false);
+    const [duration, setDuration] = useState(0.0);
+    const maximumValue = 3.15;
+    const togglePlay = () => {
+        isPlaying === true ? setIsPlaying(false) : setIsPlaying(true);
+    }
 
     const voltar = () => {
         navigation.navigate('Inicial')
@@ -51,13 +31,25 @@ function Colecao({ navigation }) {
                 <MaterialIcons name='add' size={24} color='black' /> 
             </View>
 
-            <FlatList 
-                showsHorizontalScrollIndicator={false}
-                keyExtractor={(item) => item.id}
-                data={colecao}
-                renderItem={ ({item}) => <Lista data={item} />}
-            />
-            
+            <LinearGradient colors={["#444", "#222"]} style={styles.gradient}>
+                <Text style={styles.headerText}>Now Playing</Text>
+            <View style={styles.container}>
+                <Image
+                    source={require("../../../assets/Imagens/art.jpg")}
+                    style={styles.image}
+                />
+                <View style={styles.titleCotainer}>
+                    <Text style={styles.title}>Expressões Idiomáticas | ENGLISH PODCAST #31</Text>
+                </View>
+                <View style={styles.progessContainer}>
+                    <Slider maximumValue={maximumValue} style={{width: 200, height: 40}} onValueChange={(value) => setDuration(value)} />
+                    <View style={styles.durationContainer}>
+                        <Text style={[styles.durationText, { textAlign: "left" }]}>{duration.toFixed(2)}</Text>
+                        <Text style={[styles.durationText, { textAlign: "right" }]}>{(duration - maximumValue).toFixed(2)}</Text>
+                    </View>
+                </View>
+            </View>
+        </LinearGradient>
         </View>
     );
 }

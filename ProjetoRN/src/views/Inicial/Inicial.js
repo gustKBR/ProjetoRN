@@ -28,10 +28,9 @@ function Inicial({ navigation }) {
 
             <ImageBackground source={require('../../../assets/Imagens/galaxia.jpg')} style={estiloInicial.fundo}>
 
-                <TouchableOpacity onPress={abrirColecao}>
-                    <ImageBackground source={require('../../../assets/Imagens/bau.png')} style={estiloInicial.botaoBackground}>
-                        <Text style={estiloInicial.botaoTexto}>Podcasts</Text>
-                    </ImageBackground>
+                <TouchableOpacity style={{alignItems: "center"}} onPress={abrirColecao}>
+                    <ImageBackground source={require('../../../assets/Imagens/bau.jpg')} style={estiloInicial.botaoBackground} />
+                    <Text style={estiloInicial.botaoTexto}>Podcasts</Text>
                 </TouchableOpacity>
             </ImageBackground>
         </View>
