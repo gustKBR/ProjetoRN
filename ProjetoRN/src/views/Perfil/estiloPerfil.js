@@ -7,10 +7,10 @@ const estiloPerfil = StyleSheet.create({
     },
     header:{
        height: 40,
-       width: '100%',
        backgroundColor: '#23B14D',
        flexDirection: 'row',
-       alignItems: "flex-end",
+       alignItems: 'center',
+       justifyContent: "space-between",
        padding: 5,
     },
     fundo: {     

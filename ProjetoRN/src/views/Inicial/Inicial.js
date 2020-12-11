@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity, ImageBackground } from 'react-native';
 import estiloInicial from './estiloInicial';
 import { AntDesign } from '@expo/vector-icons';
 import { useIsDrawerOpen } from '@react-navigation/drawer';
+import { RotasTab } from '../../components/rotasTab/RotasTab';
 
 function Inicial({ navigation }) {
 

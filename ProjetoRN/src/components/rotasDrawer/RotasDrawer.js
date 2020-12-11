@@ -3,8 +3,10 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import Inicial from '../../views/Inicial/Inicial';
 import Colecao from '../../views/Colecao/Colecao';
 import Perfil from '../../views/Perfil/Perfil';
+import Aluno from '../../views/Aluno/Aluno';
 import { MaterialIcons} from '@expo/vector-icons';
 import DrawerPersonalizado from './DrawerPersonalizado';
+import { Ionicons } from '@expo/vector-icons';
 
 const Drawer = createDrawerNavigator();
 
@@ -35,6 +37,14 @@ const RotasDrawer = () => {
         options={{
           drawerIcon: ({color, size}) => (
               <MaterialIcons name='person' size={size} color={color} />
+          )
+        }}/>
+        <Drawer.Screen 
+        name="Aluno" 
+        component={Aluno}
+        options={{
+          drawerIcon: ({color, size}) => (
+              <Ionicons name="md-person-add" size={size} color={color} initialParams={{aluno: {}, operacao: 'adicionar'}}/>
           )
         }}/>
     </Drawer.Navigator>
